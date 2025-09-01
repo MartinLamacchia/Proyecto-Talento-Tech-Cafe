@@ -1,0 +1,63 @@
+.container{
+    margin-top: 2rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.containerProducts{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.containerCoffee {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #4b4b4b;
+  border-radius: 10px;
+  box-shadow: 10px 10px 32px 5px rgba(0, 0, 0, 0.73);
+  -webkit-box-shadow: 10px 10px 32px 5px rgba(0, 0, 0, 0.73);
+  -moz-box-shadow: 10px 10px 32px 5px rgba(0, 0, 0, 0.73);
+  padding: 1rem 2rem; 
+
+  img {
+    width: 7rem;
+  }
+
+  .containerSpan{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .span1{
+        font-weight: bold;
+        padding: 0.3rem;
+        border-radius: 10px;
+    }
+
+    .span2{
+        background-color: #FFB347;
+        padding: 0.3rem;
+        border-radius: 10px;
+    }
+
+    .span3{
+        background-color: #C19A6B;
+        padding: 0.3rem;
+        border-radius: 10px;
+    }
+  }
+
+
+  
+}
