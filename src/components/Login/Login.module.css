@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    .content {
+        width: 20%;
+        height: 55%;
+        padding: 3rem 2rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        color: #000000;
+        position: relative;
+
+        .contentTitle {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+
+            img {
+                width: 4rem;
+            }
+        }
+
+        .form {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.3rem;
+
+            input {
+                width: 100%;
+                padding: 0.3rem 0.5rem;
+                border-radius: 10px;
+                outline: none;
+                border: none;
+            }
+
+            button {
+                width: 7rem;
+                padding: 0.3rem 0.8rem;
+                border-radius: 10px;
+                border: 1px solid #5f2618;
+                background-color: #ffffff;
+                color: #5f2618;
+                font-family: "Outfit", sans-serif;
+                font-weight: bold;
+                transition: all 300ms ;
+            }
+
+            button:hover {
+                border: 1px solid #ffffff;
+                background-color: #5f2618;
+                color: #ffffff;
+            }
+        }
+
+        .contentRegister {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+
+            .arrow {
+                font-size: 1.3rem;
+                margin-top: 3px;
+                background-color: #5f2618;
+                padding: 0.3rem;
+                color: #ffffff;
+                border-radius: 50%;
+            }
+        }
+
+        .contentShowRegister {
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            background-color: #5f2618;
+            border-radius: 10px;
+            color: #ffffff;
+            font-weight: bold;
+            border: 1px solid #5f2618;
+
+            .arrow {
+                font-size: 1.3rem;
+                background-color: #5f2618;
+                padding: 0.3rem;
+                color: #ffffff;
+                border-radius: 50%;                
+            }
+        }
+    }
+}
+

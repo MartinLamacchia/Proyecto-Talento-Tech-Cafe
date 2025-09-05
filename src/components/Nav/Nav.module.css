@@ -5,6 +5,89 @@
   justify-content: space-between;
   align-items: center;
 
+  .containerLogo {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+
+    .imgNavLogo1 {
+      width: 4rem;
+    }
+  }
+
+  .containerTextLogo {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .imgNavLogo {
+      width: 12rem;
+    }
+
+    .imgNavLogo2 {
+      width: 12rem;
+    }
+  }
+
+  .containerList {
+    margin-right: 7rem;
+
+    ul {
+      height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      li {
+        list-style: none;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          padding: 0.3rem 0.5rem;
+          border-radius: 10px;
+          transition: all 300ms ease;
+        }
+
+        a:hover {
+          background-color: #5f2618;
+          padding: 0.3rem 0.5rem;
+          border-radius: 10px;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .containerIcons {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 1.5rem;
+    font-size: 1.3rem;
+
+    .icon {
+      cursor: pointer;
+    }
+  }
+}
+
+.containerDark {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: #ffffff;
 
   .containerLogo {
     height: 5rem;
@@ -44,8 +127,24 @@
       align-items: center;
       gap: 2rem;
 
-      li{
+      li {
         list-style: none;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          padding: 0.3rem 0.5rem;
+          border-radius: 10px;
+          transition: all 300ms ease;
+        }
+
+        a:hover {
+          background-color: #e7d4b0;
+          padding: 0.3rem 0.5rem;
+          border-radius: 10px;
+          color: #000000;
+        }
       }
     }
   }
@@ -58,5 +157,9 @@
     gap: 1rem;
     margin-right: 1.5rem;
     font-size: 1.3rem;
+
+    .icon {
+      cursor: pointer;
+    }
   }
 }
