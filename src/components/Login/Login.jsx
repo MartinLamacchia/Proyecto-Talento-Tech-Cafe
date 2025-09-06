@@ -4,8 +4,9 @@ import { FaArrowRight } from "react-icons/fa";
 import Logo1 from "../../assets/Logos/Logo.png";
 import BtnClose from "../BtnClose/BtnClose";
 
-const Login = ({ setOpenLogin, openLogin }) => {
+const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister }) => {
   const [showRegister, setShowRegister] = useState(false);
+
   const handleLogin = (e) => {
     e.preventDefault();
   };
@@ -17,6 +18,11 @@ const Login = ({ setOpenLogin, openLogin }) => {
   const handleMouseLeave = () => {
     setShowRegister(false);
   };
+
+  const handleOpenRegister = () => {
+    setOpenLogin(false)
+    setOpenRegister(true)
+  }
 
   return (
     <div className={styles.container}>
@@ -35,6 +41,7 @@ const Login = ({ setOpenLogin, openLogin }) => {
           className={showRegister ? styles.contentShowRegister : styles.contentRegister}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onClick={handleOpenRegister}
         >
           {showRegister ? (
             <span>Registrate</span>

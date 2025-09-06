@@ -12,10 +12,12 @@ import { FaRegUser } from "react-icons/fa";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { FaRegMoon } from "react-icons/fa";
 import Login from "../Login/Login";
+import Register from "../Register/Register";
 
 const Nav = () => {
   const [themePage, setThemePage] = useState("light");
   const [openLogin, setOpenLogin] = useState(false);
+  const [openRegister, setOpenRegister] = useState(false);
 
   const chooseTheme = () => {
     if (themePage === "light") {
@@ -26,8 +28,8 @@ const Nav = () => {
   };
 
   const handleOpenToLogin = () => {
-    setOpenLogin(true)
-  }
+    setOpenLogin(true);
+  };
 
   return (
     <div
@@ -64,7 +66,7 @@ const Nav = () => {
       <div className={styles.containerIcons}>
         <FiShoppingCart className={styles.icon} />
         <FaRegHeart className={styles.icon} />
-        <FaRegUser className={styles.icon} onClick={handleOpenToLogin}/>
+        <FaRegUser className={styles.icon} onClick={handleOpenToLogin} />
         {themePage === "light" ? (
           <FaRegMoon className={styles.icon} onClick={chooseTheme} />
         ) : (
@@ -72,11 +74,21 @@ const Nav = () => {
         )}
       </div>
 
-      {
-        openLogin && (
-          <Login setOpenLogin={setOpenLogin} openLogin={openLogin}/>
-        )
-      }
+      {openLogin && (
+        <Login
+          setOpenLogin={setOpenLogin}
+          openLogin={openLogin}
+          openRegister={openRegister}
+          setOpenRegister={setOpenRegister}
+        />
+      )}
+
+      {openRegister && (
+        <Register
+          openRegister={openRegister}
+          setOpenRegister={setOpenRegister}
+        />
+      )}
     </div>
   );
 };
