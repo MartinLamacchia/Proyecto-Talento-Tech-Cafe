@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import styles from "./Login.module.css";
 import { FaArrowRight } from "react-icons/fa";
 import Logo1 from "../../assets/Logos/Logo.png";
@@ -43,11 +44,29 @@ const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister }) => {
           onMouseLeave={handleMouseLeave}
           onClick={handleOpenRegister}
         >
-          {showRegister ? (
-            <span>Registrate</span>
-          ) : (
-            <span>No tienes cuenta aun</span>
-          )}
+           <AnimatePresence mode="wait">
+            {showRegister ? (
+              <motion.span
+                key="register"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                Registrate
+              </motion.span>
+            ) : (
+              <motion.span
+                key="login"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                No tienes cuenta aun
+              </motion.span>
+            )}
+          </AnimatePresence>
           <FaArrowRight className={styles.arrow} />
         </div>
       </div>
