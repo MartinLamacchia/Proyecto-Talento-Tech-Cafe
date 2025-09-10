@@ -1,8 +1,11 @@
 import React from 'react'
+import Nav from '../../components/Nav/Nav'
 
 const ProductsStore = () => {
   return (
-    <div>ProductsStore</div>
+    <div>
+      <Nav />
+    </div>
   )
 }
 

@@ -37,22 +37,25 @@ const Nav = () => {
         themePage === "light" ? styles.container : styles.containerDark
       }
     >
-      <div className={styles.containerLogo}>
-        <img src={Logo1} alt="" className={styles.imgNavLogo1} />
-        <div className={styles.containerTextLogo}>
-          {themePage === "light" ? (
-            <>
-              <img src={Logo} alt="" className={styles.imgNavLogo} />
-              <img src={Logo2} alt="" className={styles.imgNavLogo2} />
-            </>
-          ) : (
-            <>
-              <img src={LogoDark} alt="" className={styles.imgNavLogo} />
-              <img src={Logo2Dark} alt="" className={styles.imgNavLogo2} />
-            </>
-          )}
+      <Link to="/">
+        <div className={styles.containerLogo}>
+          <img src={Logo1} alt="" className={styles.imgNavLogo1} />
+          <div className={styles.containerTextLogo}>
+            {themePage === "light" ? (
+              <>
+                <img src={Logo} alt="" className={styles.imgNavLogo} />
+                <img src={Logo2} alt="" className={styles.imgNavLogo2} />
+              </>
+            ) : (
+              <>
+                <img src={LogoDark} alt="" className={styles.imgNavLogo} />
+                <img src={Logo2Dark} alt="" className={styles.imgNavLogo2} />
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      </Link>
+
       <div className={styles.containerList}>
         <ul>
           <li>
