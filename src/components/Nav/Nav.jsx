@@ -64,6 +64,9 @@ const Nav = () => {
           <li>
             <Link to="/productsStore">Tienda</Link>
           </li>
+          <li>
+            <Link to="/">Contactenos</Link>
+          </li>
         </ul>
       </div>
       <div className={styles.containerIcons}>

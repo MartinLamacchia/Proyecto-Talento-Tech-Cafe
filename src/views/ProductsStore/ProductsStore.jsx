@@ -1,12 +1,64 @@
-import React from 'react'
-import Nav from '../../components/Nav/Nav'
+import React, { useEffect, useState } from "react";
+import styles from "./ProductsStore.module.css";
+import Nav from "../../components/Nav/Nav";
+import Card from "../../components/Card/Card";
+import axios from "axios";
 
 const ProductsStore = () => {
-  return (
-    <div>
-      <Nav />
-    </div>
-  )
-}
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-export default ProductsStore
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://api-cafes-production.up.railway.app/getProducts"
+        );
+
+        const coffeesRate = data.sort((a, b) => b.rate - a.rate);
+        setProducts(coffeesRate);
+      } catch (error) {
+        console.error("Error al cargar los productos:", error);
+      } finally {
+        setTimeout(() => {setLoading(false)}, 800);
+      }
+    };
+
+    getProducts();
+  }, []);
+
+  return (
+    <>
+      <Nav />
+      <div className={styles.content}>
+        <h1>Productos</h1>
+        <div className={styles.containerProducts}>
+          {products.map((product) => (
+            <Card
+              key={product.name}
+              name={product.name}
+              description={product.description}
+              image={product.image}
+              essences={product.essences}
+              price={product.price}
+              type={product.type}
+              weight={product.weight}
+              rate={product.rate}
+              stock={product.stock}
+              views={product.views}
+            />
+          ))}
+        </div>
+      </div>
+      {
+        loading && (
+          <div className={styles.containerLoading}>
+            <h1>Cargando...</h1>
+          </div>
+        )
+      }
+    </>
+  );
+};
+
+export default ProductsStore;
