@@ -3,8 +3,9 @@ import styles from "./ProductsStore.module.css";
 import Nav from "../../components/Nav/Nav";
 import Card from "../../components/Card/Card";
 import axios from "axios";
+import Footer from "../../components/Footer/Footer";
 
-const ProductsStore = () => {
+const ProductsStore = ({setProductToCart, productToCart}) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,6 +37,7 @@ const ProductsStore = () => {
           {products.map((product) => (
             <Card
               key={product.name}
+              id={product._id}
               name={product.name}
               description={product.description}
               image={product.image}
@@ -46,6 +48,8 @@ const ProductsStore = () => {
               rate={product.rate}
               stock={product.stock}
               views={product.views}
+              productToCart={productToCart}
+              setProductToCart={setProductToCart}
             />
           ))}
         </div>
@@ -57,6 +61,7 @@ const ProductsStore = () => {
           </div>
         )
       }
+      <Footer/>
     </>
   );
 };

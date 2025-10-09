@@ -65,12 +65,14 @@ const Nav = () => {
             <Link to="/productsStore">Tienda</Link>
           </li>
           <li>
-            <Link to="/">Contactenos</Link>
+            <Link to="/contact">Contactenos</Link>
           </li>
         </ul>
       </div>
       <div className={styles.containerIcons}>
-        <FiShoppingCart className={styles.icon} />
+        <Link to="/cart" className={styles.link}>
+          <FiShoppingCart className={styles.icon} />
+        </Link>
         <FaRegHeart className={styles.icon} />
         <FaRegUser className={styles.icon} onClick={handleOpenToLogin} />
         {themePage === "light" ? (
