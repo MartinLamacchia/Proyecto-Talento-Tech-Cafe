@@ -8,11 +8,38 @@ h2{
   margin: 2rem 0 2rem 3rem;
 }
 
-h3{
-  text-align: right;
-  margin-right: 9rem;
-  font-size: 1.7rem;
+.containerTotal {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   margin-bottom: 2rem;
+  gap: 2rem;
+
+
+  h3{
+    text-align: right;
+    margin-right: 9rem;
+    font-size: 1.7rem;
+  }
+
+  button{
+    font-family: "Outfit", sans-serif;
+    border: transparent;
+    background-color: #b4671e;
+    padding: 0.3rem 0.7rem;
+    color: #000000;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: all 400ms ease;
+
+    &:hover{
+      background-color: #ce0606;
+      color: #000000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
 }
 
 .container{
@@ -82,7 +109,7 @@ h3{
         }
 
         .btnDelete{
-          background-color: rgb(175, 26, 26);
+          background-color: #af1a1a;
           border: none;
           border-radius: 10px;
           font-size: 0.9rem;

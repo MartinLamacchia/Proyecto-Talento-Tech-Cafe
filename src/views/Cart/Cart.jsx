@@ -39,6 +39,10 @@ const Cart = ({ productToCart, setProductToCart }) => {
     }
   };
 
+  const emptycart = () => {
+    setProductToCart([])
+  }
+
   return (
     <>
       <h2>Carrito de compras</h2>
@@ -74,7 +78,11 @@ const Cart = ({ productToCart, setProductToCart }) => {
                   </button>
                   <button
                     id={product.id}
-                    className={product.amount > 1 ? styles.btnDelete : styles.btnDeleteDisable}
+                    className={
+                      product.amount > 1
+                        ? styles.btnDelete
+                        : styles.btnDeleteDisable
+                    }
                     disabled={product.amount <= 1}
                     onClick={addOrDeleteProduct}
                   >
@@ -86,7 +94,10 @@ const Cart = ({ productToCart, setProductToCart }) => {
           )}
         </div>
       </div>
-      <h3>Total: ${priceTotal}</h3>
+      <div className={styles.containerTotal}>
+        <button onClick={emptycart}>Vaciar Carrito</button>
+        <h3>Total: ${priceTotal}</h3>
+      </div>
       <Footer />
     </>
   );
