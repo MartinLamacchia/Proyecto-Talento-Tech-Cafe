@@ -30,7 +30,6 @@ const ProductsStore = ({setProductToCart, productToCart}) => {
 
   return (
     <>
-      <Nav />
       <div className={styles.content}>
         <h1>Productos</h1>
         <div className={styles.containerProducts}>

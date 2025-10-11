@@ -14,10 +14,13 @@ import { FaRegMoon } from "react-icons/fa";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 
-const Nav = () => {
+const Nav = ({productToCart}) => {
   const [themePage, setThemePage] = useState("light");
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
+  const allAmountProducts = productToCart.reduce((total, product) => {
+    return total + product.amount
+    }, 0)
 
   const chooseTheme = () => {
     if (themePage === "light") {
@@ -72,6 +75,11 @@ const Nav = () => {
       <div className={styles.containerIcons}>
         <Link to="/cart" className={styles.link}>
           <FiShoppingCart className={styles.icon} />
+          {
+            allAmountProducts > 0 && (
+              <span className={allAmountProducts > 9 && styles.spanAmountCart}>{allAmountProducts}</span>
+            )
+          }
         </Link>
         <FaRegHeart className={styles.icon} />
         <FaRegUser className={styles.icon} onClick={handleOpenToLogin} />

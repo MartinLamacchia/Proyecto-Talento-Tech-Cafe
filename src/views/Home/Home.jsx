@@ -10,7 +10,6 @@ import Footer from '../../components/Footer/Footer'
 const Home = () => {
   return (
     <>
-      <Nav />
       <SlideInfo />
       <div className={styles.container}>
         <FeaturedProducts />

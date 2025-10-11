@@ -35,7 +35,7 @@ h3{
     .conainerList{
       width: 90%;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       text-align: center;
     }
 
@@ -51,11 +51,63 @@ h3{
       width: 90%;
       min-height: 8rem;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       place-items: center;
 
       img{
         width: 5rem;
+      }
+
+      .containerBtn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .btnAdd{
+          background-color: rgb(61, 175, 26);
+          border: none;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          padding: 0.3rem 0.5rem;
+          color: #ffffff;
+          cursor: pointer;
+          transition: all 300ms ease;
+          font-family: "Outfit", sans-serif;
+
+          &:hover{
+            background-color: rgb(23, 88, 3);
+          }
+        }
+
+        .btnDelete{
+          background-color: rgb(175, 26, 26);
+          border: none;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          padding: 0.3rem 0.5rem;
+          color: #ffffff;
+          cursor: pointer;
+          transition: all 300ms ease;
+          font-family: "Outfit", sans-serif;
+
+          &:hover{
+            background-color: rgb(129, 1, 1);
+          }
+        }
+
+        .btnDeleteDisable{
+          background-color: rgb(88, 88, 88);
+          border: none;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          padding: 0.3rem 0.5rem;
+          color: #000000;
+          font-weight: bold;
+          transition: all 300ms ease;
+          font-family: "Outfit", sans-serif;
+        }
       }
     }
 

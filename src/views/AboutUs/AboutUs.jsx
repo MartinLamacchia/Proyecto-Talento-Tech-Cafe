@@ -42,7 +42,6 @@ const AboutUs = () => {
 
   return (
     <>
-      <Nav />
       <div className={styles.container}>
         {descriptionAboutUs.map((description) => (
           <div className={styles.content} onMouseLeave={handleMouseLeave}>
