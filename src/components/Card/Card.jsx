@@ -16,17 +16,17 @@ const Card = ({
   setProductToCart,
   productToCart,
 }) => {
-  const [showBtn, setShowBtn] = useState(false)
+  const [showBtn, setShowBtn] = useState(false);
 
   const addProductToCart = () => {
-    setShowBtn(true)
+    setShowBtn(true);
     const findProduct = productToCart.find((product) => product.id === id);
 
     if (findProduct) {
       const updateProduct = productToCart.map((product) => {
         if (product.id === id) {
           console.log(product.amount + 1);
-          return {...product, amount: product.amount + 1 };
+          return { ...product, amount: product.amount + 1 };
         } else {
           return product;
         }
@@ -52,7 +52,7 @@ const Card = ({
       ]);
     }
 
-    setShowBtn(false)
+    setShowBtn(false);
   };
 
   return (
@@ -70,11 +70,38 @@ const Card = ({
         }
       >
         <span className={styles.span1}>{name}</span>
-        <span className={styles.span2}>{essences[0]}</span>
-        <span className={styles.span3}>{essences[1]}</span>
+        {essences.map((essence) => (
+          <span
+            className={
+              essence === "Chocolate"
+                ? styles.chocolate
+                : essence === "Especias"
+                ? styles.spices
+                : essence === "Cítricos"
+                ? styles.citrusFruits
+                : essence === "Frutos Secos"
+                ? styles.nuts
+                : essence === "Miel"
+                ? styles.honney
+                : essence === "Floral"
+                ? styles.flower
+                : essence === "Caramelo"
+                ? styles.candy
+                : essence === "Frutos Rojos"
+                && styles.redFruits
+            }
+          >
+            {essence}
+          </span>
+        ))}
+        {/* <span className={styles.span2}>{essences[0]}</span>
+        <span className={styles.span3}>{essences[1]}</span> */}
       </div>
       <h4>${price}</h4>
-      <button className={!showBtn ? styles.btnAdd : styles.btnAddShow} onClick={addProductToCart}>
+      <button
+        className={!showBtn ? styles.btnAdd : styles.btnAddShow}
+        onClick={addProductToCart}
+      >
         Agregar
       </button>
     </div>
