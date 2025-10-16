@@ -14,10 +14,10 @@ import { FaRegMoon } from "react-icons/fa";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 
-const Nav = ({productToCart}) => {
+const Nav = ({productToCart, isAutenticate, setIsAutenticate, openLogin, setOpenLogin, user, setUser}) => {
   const [themePage, setThemePage] = useState("light");
-  const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
+
   const allAmountProducts = productToCart.reduce((total, product) => {
     return total + product.amount
     }, 0)
@@ -96,6 +96,9 @@ const Nav = ({productToCart}) => {
           openLogin={openLogin}
           openRegister={openRegister}
           setOpenRegister={setOpenRegister}
+          setIsAutenticate={setIsAutenticate}
+          setUser={setUser}
+          user={user}
         />
       )}
 

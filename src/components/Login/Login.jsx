@@ -5,11 +5,15 @@ import { FaArrowRight } from "react-icons/fa";
 import Logo1 from "../../assets/Logos/Logo.png";
 import BtnClose from "../BtnClose/BtnClose";
 
-const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister }) => {
+const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister, user, setUser, setIsAutenticate }) => {
   const [showRegister, setShowRegister] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    if (user.email && user.password) {
+      setIsAutenticate(true)
+      setOpenLogin(false)
+    }
   };
 
   const handleMouseEnter = () => {
@@ -25,6 +29,10 @@ const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister }) => {
     setOpenRegister(true)
   }
 
+  const handleChange = (e) => {
+    setUser({...user, [e.target.name]: e.target.value})
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -34,8 +42,8 @@ const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister }) => {
           <h2>Iniciar Sesion</h2>
         </div>
         <form action="" onSubmit={handleLogin} className={styles.form}>
-          <input type="text" placeholder="Email" />
-          <input type="pass" placeholder="Contraseña" />
+          <input type="text" placeholder="Email" name="email" value={user.email} onChange={handleChange}/>
+          <input type="pass" placeholder="Contraseña"  name="password" value={user.password}onChange={handleChange}/>
           <button>Ingresar</button>
         </form>
         <div

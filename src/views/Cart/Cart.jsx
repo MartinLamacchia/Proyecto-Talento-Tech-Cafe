@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./Cart.module.css";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
-const Cart = ({ productToCart, setProductToCart }) => {
+const Cart = ({ productToCart, setProductToCart, isAutenticate, setOpenLogin }) => {
+  const navigate = useNavigate()
   const priceTotal = productToCart.reduce((valueBefore, product) => {
     return valueBefore + product.price * product.amount;
   }, 0);
@@ -40,7 +42,15 @@ const Cart = ({ productToCart, setProductToCart }) => {
   };
 
   const emptycart = () => {
-    setProductToCart([])
+    setProductToCart([]);
+  };
+
+  const goToPayment = () => {
+    if (!isAutenticate) {
+      setOpenLogin(true)
+    }else{
+      navigate("/payment")
+    }
   }
 
   return (
@@ -95,8 +105,15 @@ const Cart = ({ productToCart, setProductToCart }) => {
         </div>
       </div>
       <div className={styles.containerTotal}>
-        <button onClick={emptycart}>Vaciar Carrito</button>
-        <h3>Total: ${priceTotal}</h3>
+        <div className={styles.contentTotal}>
+          <button onClick={emptycart}>Vaciar Carrito</button>
+          <h3>Total: ${priceTotal}</h3>
+        </div>
+        {
+          productToCart.length > 0 && (
+            <button className={isAutenticate ? styles.paymentShow : styles.paymentNoShow} onClick={goToPayment}>Pagar</button>
+          )
+        }
       </div>
       <Footer />
     </>
