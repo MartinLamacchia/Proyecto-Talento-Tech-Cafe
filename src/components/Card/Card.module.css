@@ -1,6 +1,6 @@
 .containerCoffee {
-  min-width: 22rem;
-  min-height: 17rem;
+  min-width: 19rem;
+  min-height: 15rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -12,12 +12,11 @@
   transition: all 600ms ease;
 
   img {
-    width: 7rem;
+    width: 5rem;
   }
 
   .imgCapsule {
-    margin-top: 1rem;
-    width: 10rem;
+    width: 8rem;
   }
 
   .containerSpanCapsule {
@@ -25,59 +24,14 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
+
+    span {
+      font-size: 0.9rem;
+    }
 
     .span1 {
       font-weight: bold;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .chocolate {
-      background-color: #d2691e;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .spices {
-      background-color: #b45e2a;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .citrusFruits {
-      background-color: #D6B600;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .nuts {
-      background-color: #A67B5B;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .honney {
-      background-color: #DAA520;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .flower {
-      background-color: #E68BA3;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .candy {
-      background-color: #C57B43;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .redFruits {
-      background-color: #B03A48;
-      padding: 0.3rem;
       border-radius: 10px;
     }
   }
@@ -88,85 +42,57 @@
     justify-content: space-between;
     gap: 1rem;
 
+    span {
+      font-size: 0.9rem;
+    }
+
     .span1 {
       font-weight: bold;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .chocolate {
-      background-color: #d2691e;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .spices {
-      background-color: #b45e2a;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .citrusFruits {
-      background-color: #D6B600;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .nuts {
-      background-color: #A67B5B;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .honney {
-      background-color: #DAA520;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .flower {
-      background-color: #E68BA3;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .candy {
-      background-color: #C57B43;
-      padding: 0.3rem;
-      border-radius: 10px;
-    }
-
-    .redFruits {
-      background-color: #B03A48;
-      padding: 0.3rem;
       border-radius: 10px;
     }
   }
 
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
-  .btnAdd {
-    padding: 0.3rem 3rem;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    background-color: #5f2618;
-    color: #ffffff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 500ms ease;
-  }
+  .contentBtn {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-  .btnAdd:hover {
-    background-color: #5e801f;
-    font-weight: bold;
-  }
-  
-  .btnAdd:active {
-    transform: scale(1.1);
-  }
+    .btnAdd {
+      padding: 0.3rem 2rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background-color: #5f2618;
+      color: #ffffff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 500ms ease;
+    }
 
+    .btnAdd:hover {
+      background-color: #5e801f;
+    }
+
+    .btnDetails {
+      padding: 0.3rem 2rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background-color: #ffffff;
+      color: #000000;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 500ms ease;
+
+      &:hover {
+        background-color: #000000;
+        color: #ffffff;
+      }
+    }
+  }
 }
 
 .containerCoffee:hover {

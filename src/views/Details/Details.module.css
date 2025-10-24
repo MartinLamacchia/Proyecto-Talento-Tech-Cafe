@@ -1,0 +1,97 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .content {
+    width: 90%;
+    height: calc(100vh - 5rem);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .image {
+      width: 15rem;
+    }
+
+    .contentDescription {
+      width: 45%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 3rem;
+
+      .title {
+        font-size: 3rem;
+        border-bottom: 2px solid #854204;
+      }
+
+      .description {
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .contentEssences {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .contentWeight {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+
+        .weight {
+          font-size: 1.2rem;
+        }
+
+        .price {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  .btnBackToProducts {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: "Outfit", sans-serif;
+    padding: 0.3rem 1rem;
+    border: 1px solid transparent;
+    background-color: #854204;
+    color: #ffffff;
+    border-radius: 10px;
+    transition: all 300ms;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+      box-shadow: 4px 4px 12px -2px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 4px 4px 12px -2px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 4px 4px 12px -2px rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  .containerLoading{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+  }
+}

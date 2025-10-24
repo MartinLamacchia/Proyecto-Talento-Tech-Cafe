@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Card.module.css";
+import { Link } from "react-router-dom";
 
 const Card = ({
   name,
@@ -87,8 +88,7 @@ const Card = ({
                 ? styles.flower
                 : essence === "Caramelo"
                 ? styles.candy
-                : essence === "Frutos Rojos"
-                && styles.redFruits
+                : essence === "Frutos Rojos" && styles.redFruits
             }
           >
             {essence}
@@ -98,12 +98,17 @@ const Card = ({
         <span className={styles.span3}>{essences[1]}</span> */}
       </div>
       <h4>${price}</h4>
-      <button
-        className={!showBtn ? styles.btnAdd : styles.btnAddShow}
-        onClick={addProductToCart}
-      >
-        Agregar
-      </button>
+      <div className={styles.contentBtn}>
+        <button
+          className={!showBtn ? styles.btnAdd : styles.btnAddShow}
+          onClick={addProductToCart}
+        >
+          Agregar
+        </button>
+        <Link to={`/details/${id}`}>
+          <button className={styles.btnDetails}>Ver mas</button>
+        </Link>
+      </div>
     </div>
   );
 };
