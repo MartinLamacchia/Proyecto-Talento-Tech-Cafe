@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../Context/CartContext";
 
 const Card = ({
   name,
@@ -14,9 +15,8 @@ const Card = ({
   rate,
   stock,
   views,
-  setProductToCart,
-  productToCart,
 }) => {
+  const {productToCart, setProductToCart } = useCartContext()
   const [showBtn, setShowBtn] = useState(false);
 
   const addProductToCart = () => {

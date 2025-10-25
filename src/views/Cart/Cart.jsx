@@ -3,43 +3,11 @@ import styles from "./Cart.module.css";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../Context/CartContext";
 
-const Cart = ({ productToCart, setProductToCart, isAutenticate, setOpenLogin }) => {
-  const navigate = useNavigate()
-  const priceTotal = productToCart.reduce((valueBefore, product) => {
-    return valueBefore + product.price * product.amount;
-  }, 0);
-
-  const addOrDeleteProduct = (e) => {
-    if (e.target.innerText === "Agregar") {
-      const newProduct = productToCart.map((product) => {
-        if (product.id === e.target.id) {
-          let newAmount = product.amount + 1;
-          let newProduct = { ...product, amount: newAmount };
-          return newProduct;
-        } else {
-          return product;
-        }
-      });
-
-      setProductToCart(newProduct);
-    }
-
-    if (e.target.innerText === "Eliminar") {
-      const newProduct = productToCart.map((product) => {
-        if (product.id === e.target.id) {
-          let newAmount = product.amount - 1;
-          let newProduct = { ...product, amount: newAmount };
-
-          return newProduct;
-        } else {
-          return product;
-        }
-      });
-
-      setProductToCart(newProduct);
-    }
-  };
+const Cart = ({ isAutenticate, setOpenLogin }) => {
+  const { productToCart, setProductToCart, priceTotal, addOrDeleteProduct } = useCartContext();
+  const navigate = useNavigate();
 
   const emptycart = () => {
     setProductToCart([]);
@@ -47,11 +15,11 @@ const Cart = ({ productToCart, setProductToCart, isAutenticate, setOpenLogin }) 
 
   const goToPayment = () => {
     if (!isAutenticate) {
-      setOpenLogin(true)
-    }else{
-      navigate("/payment")
+      setOpenLogin(true);
+    } else {
+      navigate("/payment");
     }
-  }
+  };
 
   return (
     <>
@@ -109,11 +77,16 @@ const Cart = ({ productToCart, setProductToCart, isAutenticate, setOpenLogin }) 
           <button onClick={emptycart}>Vaciar Carrito</button>
           <h3>Total: ${priceTotal}</h3>
         </div>
-        {
-          productToCart.length > 0 && (
-            <button className={isAutenticate ? styles.paymentShow : styles.paymentNoShow} onClick={goToPayment}>Pagar</button>
-          )
-        }
+        {productToCart.length > 0 && (
+          <button
+            className={
+              isAutenticate ? styles.paymentShow : styles.paymentNoShow
+            }
+            onClick={goToPayment}
+          >
+            Pagar
+          </button>
+        )}
       </div>
       <Footer />
     </>

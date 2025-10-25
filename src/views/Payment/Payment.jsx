@@ -1,11 +1,15 @@
 import React from "react";
 import styles from "./Payment.module.css";
+import { useCartContext } from "../../Context/CartContext";
 
-const Payment = ({ productToCart, user }) => {
-  
+const Payment = ({ user }) => {
+  const { productToCart, priceTotal } = useCartContext();
+
   const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
+
+console.log(productToCart);
 
   return (
     <div className={styles.container}>
@@ -16,17 +20,17 @@ const Payment = ({ productToCart, user }) => {
             <h4>Cantidad</h4>
             <h4>Precio total</h4>
           </div>
-          {productToCart.map((product) => (
+          {productToCart?.map((product) => (
             <div className={styles.product}>
               <img
-                src={product.image[0]}
+                src={product?.image[0]}
                 alt=""
                 className={
-                  product.type === "Capsulas" ? styles.imgCasule : styles.img
+                  product?.type === "Capsulas" ? styles.imgCasule : styles.img
                 }
               />
-              <span>{product.amount}</span>
-              <span>${product.amount * product.price}</span>
+              <span>{product?.amount}</span>
+              <span>${product?.amount * product?.price}</span>
             </div>
           ))}
         </div>
@@ -43,7 +47,7 @@ const Payment = ({ productToCart, user }) => {
           </div>
           <div className={styles.contentTotal}>
             <h3>Total a Pagar</h3>
-            <span>${productToCart[0].price}</span>
+            <span>${priceTotal}</span>
           </div>
           <button className={styles.btnPayment}>Pagar</button>
         </form>

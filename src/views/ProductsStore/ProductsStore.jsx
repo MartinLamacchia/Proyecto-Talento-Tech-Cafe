@@ -1,32 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProductsStore.module.css";
-import Nav from "../../components/Nav/Nav";
 import Card from "../../components/Card/Card";
-import axios from "axios";
 import Footer from "../../components/Footer/Footer";
+import { useCartContext } from "../../Context/CartContext";
 
-const ProductsStore = ({setProductToCart, productToCart}) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const { data } = await axios.get(
-          "https://api-cafes-production.up.railway.app/getProducts"
-        );
-
-        const coffeesRate = data.sort((a, b) => b.rate - a.rate);
-        setProducts(coffeesRate);
-      } catch (error) {
-        console.error("Error al cargar los productos:", error);
-      } finally {
-        setTimeout(() => {setLoading(false)}, 800);
-      }
-    };
-
-    getProducts();
-  }, []);
+const ProductsStore = () => {
+  const { products, loading } = useCartContext();
 
   return (
     <>
@@ -47,20 +26,16 @@ const ProductsStore = ({setProductToCart, productToCart}) => {
               rate={product.rate}
               stock={product.stock}
               views={product.views}
-              productToCart={productToCart}
-              setProductToCart={setProductToCart}
             />
           ))}
         </div>
       </div>
-      {
-        loading && (
-          <div className={styles.containerLoading}>
-            <h1>Cargando...</h1>
-          </div>
-        )
-      }
-      <Footer/>
+      {loading && (
+        <div className={styles.containerLoading}>
+          <h1>Cargando...</h1>
+        </div>
+      )}
+      <Footer />
     </>
   );
 };

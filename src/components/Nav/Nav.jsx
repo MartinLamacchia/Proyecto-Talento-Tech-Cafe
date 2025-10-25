@@ -13,8 +13,10 @@ import { MdOutlineWbSunny } from "react-icons/md";
 import { FaRegMoon } from "react-icons/fa";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import {useCartContext} from "../../Context/CartContext"
 
-const Nav = ({productToCart, isAutenticate, setIsAutenticate, openLogin, setOpenLogin, user, setUser}) => {
+const Nav = ({isAutenticate, setIsAutenticate, openLogin, setOpenLogin, user, setUser}) => {
+  const {productToCart} = useCartContext()
   const [themePage, setThemePage] = useState("light");
   const [openRegister, setOpenRegister] = useState(false);
 

@@ -1,35 +1,17 @@
-import React, { useEffect, useState } from "react";
-import ImgCafe from "../../assets/Cafe/1-Photoroom.png";
+import React from "react";
 import styles from "./FeaturedProducts.module.css";
-import axios from "axios";
+import { useCartContext } from "../../Context/CartContext";
 
 const FeaturedProducts = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const { data } = await axios.get(
-          "https://api-cafes-production.up.railway.app/getProducts"
-        );
-
-        const coffeesRate = data.sort((a, b) => b.rate - a.rate);
-        setProducts(coffeesRate);
-      } catch (error) {
-        console.error("Error al cargar los productos:", error);
-      }
-    };
-
-    getProducts();
-  }, []);
-
-  console.log(products);
+  const {products} = useCartContext()
+  const coffeesRate = products.sort((a, b) => b.rate - a.rate);
+  
 
   return (
     <div className={styles.container}>
       <h2>Productos Destacados</h2>
       <div className={styles.containerProducts}>
-        {products.map(
+        {coffeesRate.map(
           (product, index) =>
             index < 3 && (
               <div className={styles.containerCoffee}>

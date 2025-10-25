@@ -11,7 +11,6 @@ import Payment from "./views/Payment/Payment";
 import Details from "./views/Details/Details";
 
 function App() {
-  const [productToCart, setProductToCart] = useState([]);
   const [isAutenticate, setIsAutenticate] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [user, setUser] = useState({
@@ -23,7 +22,6 @@ function App() {
   return (
     <>
       <Nav
-        productToCart={productToCart}
         setIsAutenticate={setIsAutenticate}
         isAutenticate={isAutenticate}
         openLogin={openLogin}
@@ -34,37 +32,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutUs" element={<AboutUs />} />
-        <Route
-          path="/productsStore"
-          element={
-            <ProductsStore
-              setProductToCart={setProductToCart}
-              productToCart={productToCart}
-            />
-          }
-        />
+        <Route path="/productsStore" element={<ProductsStore />} />
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/cart"
           element={
-            <Cart
-              setProductToCart={setProductToCart}
-              productToCart={productToCart}
-              isAutenticate={isAutenticate}
-              setOpenLogin={setOpenLogin}
-            />
+            <Cart isAutenticate={isAutenticate} setOpenLogin={setOpenLogin} />
           }
         />
-        <Route
-          path="/payment"
-          element={
-            <Payment
-              isAutenticate={isAutenticate}
-              productToCart={productToCart}
-              user={user}
-            />
-          }
-        />
+        <Route path="/payment" element={<Payment user={user} />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>
     </>
