@@ -14,15 +14,12 @@ import { FaRegMoon } from "react-icons/fa";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import {useCartContext} from "../../Context/CartContext"
+import { useUserContext } from "../../Context/UserContext";
 
-const Nav = ({isAutenticate, setIsAutenticate, openLogin, setOpenLogin, user, setUser}) => {
-  const {productToCart} = useCartContext()
+const Nav = () => {
+  const {allAmountProducts} = useCartContext()
+  const { openLogin, openRegister, handleOpenToLogin} = useUserContext()
   const [themePage, setThemePage] = useState("light");
-  const [openRegister, setOpenRegister] = useState(false);
-
-  const allAmountProducts = productToCart.reduce((total, product) => {
-    return total + product.amount
-    }, 0)
 
   const chooseTheme = () => {
     if (themePage === "light") {
@@ -32,9 +29,7 @@ const Nav = ({isAutenticate, setIsAutenticate, openLogin, setOpenLogin, user, se
     }
   };
 
-  const handleOpenToLogin = () => {
-    setOpenLogin(true);
-  };
+
 
   return (
     <div
@@ -93,22 +88,11 @@ const Nav = ({isAutenticate, setIsAutenticate, openLogin, setOpenLogin, user, se
       </div>
 
       {openLogin && (
-        <Login
-          setOpenLogin={setOpenLogin}
-          openLogin={openLogin}
-          openRegister={openRegister}
-          setOpenRegister={setOpenRegister}
-          setIsAutenticate={setIsAutenticate}
-          setUser={setUser}
-          user={user}
-        />
+        <Login />
       )}
 
       {openRegister && (
-        <Register
-          openRegister={openRegister}
-          setOpenRegister={setOpenRegister}
-        />
+        <Register/>
       )}
     </div>
   );

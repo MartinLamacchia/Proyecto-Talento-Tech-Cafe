@@ -3,7 +3,8 @@ import styles from "./Register.module.css";
 import Logo1 from "../../assets/Logos/Logo.png";
 import BtnClose from "../BtnClose/BtnClose";
 
-const Register = ({ openRegister, setOpenRegister }) => {
+const Register = () => {
+
   const handleRegister = (e) => {
     e.preventDefault();
   };
@@ -11,7 +12,7 @@ const Register = ({ openRegister, setOpenRegister }) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <BtnClose setOpenRegister={setOpenRegister} openRegister={openRegister} />
+        <BtnClose/>
         <div className={styles.contentTitle}>
           <img src={Logo1} alt="" />
           <h2>Registrate</h2>

@@ -1,15 +1,15 @@
 import React from "react";
 import styles from "./Payment.module.css";
 import { useCartContext } from "../../Context/CartContext";
+import { useUserContext } from "../../Context/UserContext";
 
-const Payment = ({ user }) => {
+const Payment = () => {
   const { productToCart, priceTotal } = useCartContext();
+  const {user} = useUserContext()
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-
-console.log(productToCart);
 
   return (
     <div className={styles.container}>

@@ -4,17 +4,11 @@ import styles from "./Login.module.css";
 import { FaArrowRight } from "react-icons/fa";
 import Logo1 from "../../assets/Logos/Logo.png";
 import BtnClose from "../BtnClose/BtnClose";
+import { useUserContext } from "../../Context/UserContext";
 
-const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister, user, setUser, setIsAutenticate }) => {
+const Login = () => {
+  const { user, setUser, handleLogin, handleOpenRegister} = useUserContext()
   const [showRegister, setShowRegister] = useState(false);
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (user.email && user.password) {
-      setIsAutenticate(true)
-      setOpenLogin(false)
-    }
-  };
 
   const handleMouseEnter = () => {
     setShowRegister(true);
@@ -24,11 +18,6 @@ const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister, user, s
     setShowRegister(false);
   };
 
-  const handleOpenRegister = () => {
-    setOpenLogin(false)
-    setOpenRegister(true)
-  }
-
   const handleChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value})
   }
@@ -36,7 +25,7 @@ const Login = ({ setOpenLogin, openLogin, setOpenRegister, openRegister, user, s
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <BtnClose setOpenLogin={setOpenLogin} openLogin={openLogin} />
+        <BtnClose/>
         <div className={styles.contentTitle}>
           <img src={Logo1} alt="" />
           <h2>Iniciar Sesion</h2>

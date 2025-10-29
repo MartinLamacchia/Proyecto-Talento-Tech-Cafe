@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home/Home";
 import AboutUs from "./views/AboutUs/AboutUs";
@@ -11,24 +11,10 @@ import Payment from "./views/Payment/Payment";
 import Details from "./views/Details/Details";
 
 function App() {
-  const [isAutenticate, setIsAutenticate] = useState(false);
-  const [openLogin, setOpenLogin] = useState(false);
-  const [user, setUser] = useState({
-    name: "Martin",
-    email: "",
-    password: "",
-  });
 
   return (
     <>
-      <Nav
-        setIsAutenticate={setIsAutenticate}
-        isAutenticate={isAutenticate}
-        openLogin={openLogin}
-        setOpenLogin={setOpenLogin}
-        user={user}
-        setUser={setUser}
-      />
+      <Nav/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutUs" element={<AboutUs />} />
@@ -37,10 +23,10 @@ function App() {
         <Route
           path="/cart"
           element={
-            <Cart isAutenticate={isAutenticate} setOpenLogin={setOpenLogin} />
+            <Cart/>
           }
         />
-        <Route path="/payment" element={<Payment user={user} />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/details/:id" element={<Details />} />
       </Routes>
     </>

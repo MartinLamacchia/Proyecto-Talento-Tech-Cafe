@@ -63,6 +63,10 @@ export const CartProvider = ({children}) => {
     }
   };
 
+  const allAmountProducts = productToCart.reduce((total, product) => {
+    return total + product.amount
+    }, 0)
+
 
   const value = {
     products,
@@ -70,7 +74,8 @@ export const CartProvider = ({children}) => {
     productToCart,
     setProductToCart,
     priceTotal,
-    addOrDeleteProduct
+    addOrDeleteProduct,
+    allAmountProducts
   }
 
   return (

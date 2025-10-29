@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./Cart.module.css";
-import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../Context/CartContext";
+import { useUserContext } from "../../Context/UserContext";
 
-const Cart = ({ isAutenticate, setOpenLogin }) => {
+const Cart = () => {
   const { productToCart, setProductToCart, priceTotal, addOrDeleteProduct } = useCartContext();
+  const {isAutenticate, setOpenLogin } = useUserContext()
   const navigate = useNavigate();
 
   const emptycart = () => {
