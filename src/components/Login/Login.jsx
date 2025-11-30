@@ -19,6 +19,11 @@ const Login = () => {
   };
 
   const handleChange = (e) => {
+
+    if (e.target.value === "admin@admin.com") {
+      setUser({...user, [user.name]: "Admin", [e.target.name]: e.target.value})
+    }
+
     setUser({...user, [e.target.name]: e.target.value})
   }
 

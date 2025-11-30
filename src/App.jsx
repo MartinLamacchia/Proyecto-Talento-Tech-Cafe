@@ -9,6 +9,7 @@ import Cart from "./views/Cart/Cart";
 import Nav from "./components/Nav/Nav";
 import Payment from "./views/Payment/Payment";
 import Details from "./views/Details/Details";
+import Dashboard from "./views/Dashboard/Dashboard";
 
 function App() {
 
@@ -28,7 +29,9 @@ function App() {
         />
         <Route path="/payment" element={<Payment />} />
         <Route path="/details/:id" element={<Details />} />
+        <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
+        
     </>
   );
 }

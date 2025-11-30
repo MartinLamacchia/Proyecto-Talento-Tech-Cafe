@@ -13,22 +13,23 @@ import { MdOutlineWbSunny } from "react-icons/md";
 import { FaRegMoon } from "react-icons/fa";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
-import {useCartContext} from "../../Context/CartContext"
+import { useCartContext } from "../../Context/CartContext"
 import { useUserContext } from "../../Context/UserContext";
 
 const Nav = () => {
-  const {allAmountProducts} = useCartContext()
-  const { openLogin, openRegister, handleOpenToLogin} = useUserContext()
+  const { allAmountProducts } = useCartContext()
+  const { user, logout, isAutenticate, openMenu, setOpenMenu } = useUserContext()
+  const { openLogin, openRegister, handleOpenToLogin } = useUserContext()
   const [themePage, setThemePage] = useState("light");
+  
 
-  const chooseTheme = () => {
-    if (themePage === "light") {
-      setThemePage("dark");
-    } else {
-      setThemePage("light");
-    }
-  };
-
+  // const chooseTheme = () => {
+  //   if (themePage === "light") {
+  //     setThemePage("dark");
+  //   } else {
+  //     setThemePage("light");
+  //   }
+  // };
 
 
   return (
@@ -79,12 +80,43 @@ const Nav = () => {
           }
         </Link>
         <FaRegHeart className={styles.icon} />
-        <FaRegUser className={styles.icon} onClick={handleOpenToLogin} />
-        {themePage === "light" ? (
+        {
+          isAutenticate ? (
+            <div className={styles.userMenuContainer}>
+              <span
+                className={styles.userName}
+                onClick={() => setOpenMenu(!openMenu)}
+              >
+                Hola, {user.name}
+              </span>
+
+              {openMenu && user.name === "Admin" && (
+                <div className={styles.dropdownMenu}>
+                  <Link to="/dashboard" className={styles.dropdownItem}>Dashboard</Link>
+                  <span className={styles.dropdownItem} onClick={logout}>
+                    Logout
+                  </span>
+                </div>
+              )}
+
+              {openMenu && user.name !== "Admin" && (
+                <div className={styles.dropdownMenu}>
+                  <span className={styles.dropdownItem} onClick={logout}>
+                    Logout
+                  </span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <FaRegUser className={styles.icon} onClick={handleOpenToLogin} />
+          )
+        }
+
+        {/* {themePage === "light" ? (
           <FaRegMoon className={styles.icon} onClick={chooseTheme} />
         ) : (
           <MdOutlineWbSunny className={styles.icon} onClick={chooseTheme} />
-        )}
+        )} */}
       </div>
 
       {openLogin && (
@@ -92,7 +124,7 @@ const Nav = () => {
       )}
 
       {openRegister && (
-        <Register/>
+        <Register />
       )}
     </div>
   );

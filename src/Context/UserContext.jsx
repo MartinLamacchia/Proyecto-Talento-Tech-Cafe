@@ -1,8 +1,9 @@
-import React, {createContext, useState, useEffect, useContext} from "react"
+import React, { createContext, useState, useEffect, useContext } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const UserContext = createContext()
 
-export const UserProvider = ({children}) => {
+export const UserProvider = ({ children }) => {
   const [isAutenticate, setIsAutenticate] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
@@ -11,6 +12,15 @@ export const UserProvider = ({children}) => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const logout = () => {
+    setIsAutenticate(false)
+    setOpenMenu(false)
+    setUser({ name: "Martin", email: "", password: "" })
+    navigate("/")
+  }
 
   const handleOpenToLogin = () => {
     setOpenLogin(true);
@@ -18,11 +28,18 @@ export const UserProvider = ({children}) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (user.email && user.password) {
+    if (user.email === "admin@admin.com") {
+      setUser({ ...user, name: "Admin" })
+      setIsAutenticate(true)
+      setOpenLogin(false)
+    } else {
       setIsAutenticate(true)
       setOpenLogin(false)
     }
   };
+
+  console.log(openMenu);
+  
 
   const handleOpenRegister = () => {
     setOpenLogin(false)
@@ -40,7 +57,10 @@ export const UserProvider = ({children}) => {
     setOpenRegister,
     handleOpenToLogin,
     handleLogin,
-    handleOpenRegister
+    handleOpenRegister,
+    logout,
+    setOpenMenu,
+    openMenu,
   }
 
   return (
