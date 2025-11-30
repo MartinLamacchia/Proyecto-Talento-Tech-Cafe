@@ -28,7 +28,7 @@ const Login = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.containerLogin}>
       <div className={styles.content}>
         <BtnClose/>
         <div className={styles.contentTitle}>
